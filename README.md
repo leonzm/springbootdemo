@@ -1,6 +1,6 @@
-#Spring Boot 要点
+# Spring Boot 要点
 
-##创建一个简单的 Restful 应用
+## 创建一个简单的 Restful 应用
 * 登陆http://start.spring.io初始化并下载项目 springbootdemo
 * 构建 restful 服务，如：HelloController、HiController
 * 测试，HelloControllerTest 演示了如何测试 restful 服务
