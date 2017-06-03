@@ -1,0 +1,17 @@
+#在 YAML 文件中通过使用 spring.profiles 属性来定义多个不同的环境配置
+
+# 没有指定环境时
+server:
+  port: 8881
+---
+# test 环境
+spring:
+  profiles: test
+server:
+  port: 8882
+---
+# prod 环境
+spring:
+  profiles: prod
+server:
+  port: 8883
