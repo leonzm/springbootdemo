@@ -1,4 +1,4 @@
-# Spring Boot 要点
+# Spring Boot 笔记
 
 ## 创建一个简单的 Restful 应用
 * 登陆http://start.spring.io初始化并下载项目 springbootdemo
@@ -21,5 +21,8 @@
 > Spring Boot 对配置数据的加载顺序,优先级由高到低：<br/>1.在命令行中传入参数<br/>2.SPRING_APPLICATION_JSON 中的属性。SPRING_APPLICATION_JSON 是以 JSON 格式配置在系统环境变量中的内容。<br/>3.java:comp/env 中的 JNDI 属性。<br/>4.Java 的系统属性，可以通过 System.getProperties() 获取的内容。<br/>5.操作系统的环境变量。<br/>6.通过 random.* 配置的随机属性。<br/>7.位于当前应用 jar 包之外，针对不同 {profile} 环境的配置文件内容，例如 application-{profile}.properties 或是 YAML 定义的配置文件。<br/>8.位于当前应用 jar 包之内，针对不同 {profile} 环境的配置文件内容，例如 application-{profile}.properties 或是 YAML 定义的配置文件。<br/>9.位于当前应用 jar 包之外的 application.properties 和 YAML 配置内容。<br/>10.位于当前应用 jar 包之内的 application.properties 和 YAML 配置内容。<br/>11.在 @Configuration 注解修改的类中，通过 @PropertySource 注解定义的属性。<br/>12.应用默认配置，使用 SpringApplication.setDefaultProperties 定义的内容。
 
 ## 监控与管理
-
-
+* 使用 actuator 获取应用的各项监控指标
+* 根据监控的作用，分为三大类
+> <br/>1.应用配置类（静态）：获取应用中加载的应用配置、环境变量、自动化配置报告等与 Spring Boot 应用密切相关的配置类信息。如：<br/>/autoconfig 用来获取应用的自动化配置报告；<br/>/beans 用来获取应用上下文中创建的所有 Bean；<br/>/configprops 用来获取应用中配置的属性信息报告；<br/>/env 用来获取应用中所有可用的环境属性报告；<br/>/mapping 用来获取所有 Spring MVC 的控制器映射关系报告；<br/>/info 用来返回一些应用自定义的信息
+> <br/>2.度量指标类（动态）：提供了应用程序在运行过程中的一些快照信息，比如内存使用情况、HTTP 请求统计、外部资源指标等。如：<br/>/metrics 用来获取当前应用的各类重要度量指标，比如内存信息、线程信息、垃圾回收信息等；<br/>/health 用来获取应用的各类健康指标信息；<br/>/dump 用来暴露程序运行中的线程信息；<br/>/trace 用来获取基本的 HTTP 跟踪信息，始终保留最近的100条请求记录
+> <br/>3.操作控制类：如：<br/>/shutdown 关闭应用，需要配置 endpoints.shutdown.enabled=true 来开启
