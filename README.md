@@ -26,3 +26,15 @@
 > <br/>1.应用配置类（静态）：获取应用中加载的应用配置、环境变量、自动化配置报告等与 Spring Boot 应用密切相关的配置类信息。如：<br/>/autoconfig 用来获取应用的自动化配置报告；<br/>/beans 用来获取应用上下文中创建的所有 Bean；<br/>/configprops 用来获取应用中配置的属性信息报告；<br/>/env 用来获取应用中所有可用的环境属性报告；<br/>/mapping 用来获取所有 Spring MVC 的控制器映射关系报告；<br/>/info 用来返回一些应用自定义的信息
 > <br/>2.度量指标类（动态）：提供了应用程序在运行过程中的一些快照信息，比如内存使用情况、HTTP 请求统计、外部资源指标等。如：<br/>/metrics 用来获取当前应用的各类重要度量指标，比如内存信息、线程信息、垃圾回收信息等；<br/>/health 用来获取应用的各类健康指标信息；<br/>/dump 用来暴露程序运行中的线程信息；<br/>/trace 用来获取基本的 HTTP 跟踪信息，始终保留最近的100条请求记录
 > <br/>3.操作控制类：如：<br/>/shutdown 关闭应用，需要配置 endpoints.shutdown.enabled=true 来开启
+
+# 统一异常处理
+* 返回 Html 格式
+> 1. 创建全局异常处理类：通过使用@ControllerAdvice定义统一的异常处理类，而不是在每个Controller中逐个定义。@ExceptionHandler用来定义
+函数针对的异常类型，最后将Exception对象和请求URL映射到error.html中
+> 2.实现error.html页面展示：在templates目录下创建error.html，将请求的URL和Exception对象的message输出
+
+* 返回 Json 格式
+> 1. 需在@ExceptionHandler之后加入@ResponseBody，就能让处理函数return的内容转换为JSON格式
+
+
+
