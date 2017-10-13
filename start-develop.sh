@@ -1,0 +1,1 @@
+nohup java -Xms512m -Xmx1024m -Dfile.encoding=UTF-8 -jar -XX:+UseG1GC -XX:+UseStringDeduplication -Djava.io.tmpdir=/home/java/springbootdemo/data/tmp springbootdemo.jar --spring.profiles.active=develop > /dev/null 2>&1 &
